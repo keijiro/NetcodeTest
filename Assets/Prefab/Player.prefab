@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: -2125551172406328890}
   - component: {fileID: 4140381070897789622}
   m_Layer: 0
-  m_Name: Bot
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
