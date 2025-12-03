@@ -7,6 +7,7 @@
     "com.unity.netcode": "1.10.0",
     "com.unity.render-pipelines.universal": "17.0.4",
     "jp.keijiro.klutter-tools": "2.4.4",
+    "jp.keijiro.metawire": "2.1.2",
     "com.unity.modules.uielements": "1.0.0"
   },
   "scopedRegistries": [
