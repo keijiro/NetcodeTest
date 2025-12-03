@@ -26,6 +26,15 @@ public partial struct PlayerMovementSystem : ISystem
             };
 
             xform.ValueRW.Position += dir * player.ValueRO.Speed * dt;
+
+            if (!dir.Equals(float3.zero))
+            {
+                var halfLife = 0.05f;
+                var target = quaternion.LookRotationSafe(dir, math.up());
+                var para = math.exp2(-dt / halfLife);
+                xform.ValueRW.Rotation =
+                  math.nlerp(target, xform.ValueRO.Rotation, para);
+            }
         }
     }
 }
