@@ -4,7 +4,7 @@ using Unity.Transforms;
 
 using Dir = PlayerDirection;
 
-[UpdateInGroup(typeof(PredictedSimulationSystemGroup))]
+[UpdateInGroup(typeof(GhostInputSystemGroup))]
 public partial struct AutopilotSystem : ISystem
 {
     public void OnUpdate(ref SystemState state)
