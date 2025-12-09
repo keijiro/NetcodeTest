@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Entities;
 using Unity.NetCode;
 
-public enum PlayerDirection { Right, Up, Left, Down }
+public enum PlayerDirection { None, Right, Up, Left, Down }
 
 public struct PlayerInput : IInputComponentData
 {

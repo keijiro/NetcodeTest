@@ -18,6 +18,7 @@ public partial struct PlayerMovementSystem : ISystem
         {
             var dir = input.ValueRO.Direction switch
             {
+                PlayerDirection.None  => float3.zero,
                 PlayerDirection.Right => new float3(1, 0, 0),
                 PlayerDirection.Up    => new float3(0, 0, 1),
                 PlayerDirection.Left  => new float3(-1, 0, 0),

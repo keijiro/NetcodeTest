@@ -19,6 +19,7 @@ public partial struct AutopilotSystem : ISystem
             var border = autopilot.ValueRO.Bounds * 0.5f;
 
             var dir = input.ValueRO.Direction;
+            if (dir == Dir.None) dir = Dir.Right;
 
             switch (dir)
             {
