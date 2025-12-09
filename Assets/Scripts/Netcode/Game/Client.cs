@@ -36,3 +36,31 @@ public partial struct GoInGameClientSystem : ISystem
         cb.Playback(state.EntityManager);
     }
 }
+
+[WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation |
+                   WorldSystemFilterFlags.ThinClientSimulation)]
+public partial struct PlayerSpawnRequestSystem : ISystem
+{
+    public void OnCreate(ref SystemState state)
+    {
+        var query = new EntityQueryBuilder(Allocator.Temp)
+          .WithAll<PlayerSpawnRequest>()
+          .WithNone<SendRpcCommandRequest>();
+        state.RequireForUpdate(state.GetEntityQuery(query));
+    }
+
+    public void OnUpdate(ref SystemState state)
+    {
+        var cb = new EntityCommandBuffer(Allocator.Temp);
+
+        foreach (var (_, entity) in
+          SystemAPI.Query<PlayerSpawnRequest>()
+            .WithNone<SendRpcCommandRequest>()
+            .WithEntityAccess())
+        {
+            cb.AddComponent<SendRpcCommandRequest>(entity);
+        }
+
+        cb.Playback(state.EntityManager);
+    }
+}
